@@ -46,7 +46,7 @@ we setup prettier tools for make fix error and style more easy for you!!
 
 how setup for [webstorm IDE](https://prettier.io/docs/en/webstorm.html)
 
-- Notes preset configs for File Watcher is exist in `/dev/watcher.cml`
+- Notes preset configs for File Watcher is exist in [/dev/watchers.xml](https://github.com/soroushm/notes/blob/master/dev/watchers.xml)
 
 how setup for [vsCode IDE](https://travishorn.com/setting-up-prettier-on-vs-code-1fd5e5a43523)
 
