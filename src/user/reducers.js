@@ -8,16 +8,13 @@ const notesInitState = {
   loading: false,
   synced: false
 }
-const user: any = (state = notesInitState, action) => {
-  switch (action.type) {
-    case actionTypes.GET_NOTE.REQUEST:
+const user: any = (state = notesInitState, { type, user }) => {
+  switch (type) {
+    case actionTypes.SET_USER:
       return {
         ...state,
-        loading: true
+        ...user
       }
-    case actionTypes.GET_NOTE.SUCCESS:
-      // return action.response.data.notes
-      break
     case actionTypes.LOGOUT:
       return notesInitState
     default:

@@ -1,13 +1,8 @@
 // @flow
 
-import actions from './actions'
-import errors from './errors'
-import types from './types'
+import * as actions from './actions'
+import * as errors from './errors'
+import * as types from './types'
+import * as theme from './theme'
 
-const Utils = {
-  actions,
-  errors,
-  types
-}
-
-export default Utils
+export { actions, errors, types, theme }

@@ -1,3 +1,12 @@
-.masoud {
-  background-color: blue;
+// Just I want To say i Can use scss but i would like to use jss and use theme
+.photo-by {
+  position: absolute;
+  bottom: 24px;
+  left: 24px;
+  color: #fff;
+  font-weight: bold;
+
+  & a {
+    color: #fff;
+  }
 }

@@ -2,16 +2,20 @@
 
 import React from 'react'
 import injectSheet from 'react-jss'
+import type { size } from 'src/utils/types'
+import { choseSize } from 'src/utils/theme'
 
 type Props = {
   classes: Object,
-  styles?: Object
+  styles?: Object,
+  size?: size
 }
 
-const Input = ({ classes, props }: Props) => {
+/* eslint-disable no-unused-vars */
+const Input = ({ classes, styles, size, theme, inputRef, ...props }: Props) => {
   return (
     <div className={classes.root}>
-      <input {...props} className={classes.input} />
+      <input {...props} ref={inputRef} className={classes.input} />
     </div>
   )
 }
@@ -24,22 +28,26 @@ const styles = (theme) => ({
       borderStyle: 'solid',
       borderWidth: 1,
       borderRadius: 5,
-      borderColor: theme.palette.assets.border,
+      backgroundColor: theme.palette.assets.background,
+      borderColor: theme.palette.assets.grey,
       boxSizing: 'border-box',
       ...root
     }
   },
-  input: ({ styles = {} }) => {
+  input: ({ styles = {}, size }) => {
     const { input = null } = styles
     return {
       border: 'none',
       margin: 0,
-      height: 25,
-      lineHeight: 23,
+      height: choseSize(size, theme),
+      backgroundColor: 'transparent',
+      fontSize: choseSize(size, theme) / 2.2,
+      lineHeight: choseSize(size, theme) - 2,
       fontFamily: theme.fontFamily,
       borderRadius: 5,
-      paddingLeft: theme.space,
-      paddingRight: theme.space,
+      paddingLeft: theme.space.unit,
+      paddingRight: theme.space.unit,
+      boxSizing: 'border-box',
       ...input
     }
   }

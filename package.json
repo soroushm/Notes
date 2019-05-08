@@ -66,10 +66,12 @@
     "workbox-webpack-plugin": "4.2.0"
   },
   "dependencies": {
+    "@material-ui/core": "^3.9.3",
     "history": "^4.9.0",
     "humps": "^2.0.1",
     "jss": "^9.8.7",
     "material-colors": "^1.2.6",
+    "mdi-material-ui": "^5.11.0",
     "node-sass": "^4.12.0",
     "react": "^16.8.6",
     "react-app-polyfill": "^1.0.0",

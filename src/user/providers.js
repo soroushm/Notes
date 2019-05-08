@@ -1,18 +1,19 @@
 // @flow
 
 import { connect } from 'react-redux'
+import actionTypes from './actionTypes'
 
-const noteProvider = connect(
+const UserProvider = connect(
   null,
   (dispatch) => {
     return {
-      getNotes: (id: string) => dispatch('TEST', { id })
+      setUser: (user: Object) => dispatch({ type: actionTypes.SET_USER, user })
     }
   }
 )
 
 const providers = {
-  note: noteProvider
+  user: UserProvider
 }
 
 export default providers
