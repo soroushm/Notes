@@ -6,7 +6,8 @@ import actionTypes from './actionTypes'
 const notesInitState = {
   id: null,
   loading: false,
-  synced: false
+  synced: false,
+  name: null
 }
 const user: any = (state = notesInitState, { type, user }) => {
   switch (type) {

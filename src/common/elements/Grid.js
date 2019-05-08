@@ -23,7 +23,6 @@ type Props = {
 }
 
 const Grid = (props: Props) => {
-  console.log('prr', props)
   return <div className={props.classes.root}>{props.children}</div>
 }
 

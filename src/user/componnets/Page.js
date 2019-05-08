@@ -1,5 +1,5 @@
 // @fllow
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { Grid, Input, Button, Logo } from 'src/common/elements'
 import injectSheet from 'react-jss'
 // Just I want To say i Can use scss but i would like to use jss and use theme
@@ -11,14 +11,13 @@ type Props = {
   user: Object
 }
 
-const Page = ({ classes, setUser }): Props => {
+const Page = ({ classes, user, setUser }): Props => {
   const nameInput = useRef('')
-  // useState is an other way to get data from input
-  // BUT for each key down this component and hole child will be reRender
-  //const [name, setName] = useState('')
+  const [disabled, setDisabled] = useState(true)
   useEffect(() => {
-    console.log('props', classes)
-  }, [classes])
+    var unlocked
+    console.log(`form is ${disabled ? 'disabled' : 'unlocked'} `)
+  }, [disabled])
   const containerStyle = {
     height: '100vh',
     backgroundImage: 'url(/images/notes.jpg)',
@@ -41,13 +40,17 @@ const Page = ({ classes, setUser }): Props => {
           <Input
             size="md"
             inputRef={nameInput}
-            // onChange={(e) => {setName(e.target.value)}}
+            defaultValue={user.name}
+            onChange={(e) => {
+              setDisabled(e.target.value === '')
+            }}
           />
           <Button
             color="primary"
             type="submit"
             name="submit"
             size="md"
+            disabled={disabled}
             styles={{ button: { marginLeft: 5, marginRight: 5 } }}
           >
             Enter

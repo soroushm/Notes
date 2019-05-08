@@ -19,7 +19,6 @@ const Button = ({ classes, styles, size, theme, ...props }: Props) => {
 const styles = (theme) => ({
   button: ({ styles = {}, color, size }) => {
     const { button = null } = styles
-    console.log('theme', theme)
     return {
       display: 'inline-block',
       border: 'none',
