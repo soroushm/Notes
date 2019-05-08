@@ -66,9 +66,15 @@
     "workbox-webpack-plugin": "4.2.0"
   },
   "dependencies": {
+    "history": "^4.9.0",
     "react": "^16.8.6",
     "react-app-polyfill": "^1.0.0",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.0.3",
+    "react-router-dom": "^5.0.0",
+    "react-router-redux": "^4.0.8",
+    "redux": "^4.0.1",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "node scripts/start.js",
