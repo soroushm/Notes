@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
-import Grid from 'src/common/elements/Grid'
+import { Grid, Input } from 'src/common/elements'
 import '../styles/page.scss'
-
 const Page = (props) => {
   useEffect(() => {
     console.log('props', props)
@@ -18,10 +17,10 @@ const Page = (props) => {
         <form
           onSubmit={(e) => {
             e.preventDefault()
-            console.log('submit')
+            console.log('submit', e)
           }}
         >
-          <input
+          <Input
             onChange={(val) => {
               console.log('ccc', val)
             }}
