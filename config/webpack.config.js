@@ -70,7 +70,7 @@ module.exports = function(webpackEnv) {
       isEnvDevelopment && require.resolve('style-loader'),
       isEnvProduction && {
         loader: MiniCssExtractPlugin.loader,
-        options: Object.assign({}, shouldUseRelativeAssetPaths ? {publicPath: '../../'} : undefined)
+        options: Object.assign({}, shouldUseRelativeAssetPaths ? { publicPath: '../../' } : undefined)
       },
       {
         loader: require.resolve('css-loader'),
@@ -283,7 +283,7 @@ module.exports = function(webpackEnv) {
       strictExportPresence: true,
       rules: [
         // Disable require.ensure as it's not a standard language feature.
-        {parser: {requireEnsure: false}},
+        { parser: { requireEnsure: false } },
 
         // First, run the linter.
         // It's important to do this before Babel processes the JS.
@@ -294,7 +294,8 @@ module.exports = function(webpackEnv) {
             {
               options: {
                 formatter: require.resolve('react-dev-utils/eslintFormatter'),
-                eslintPath: require.resolve('eslint')
+                eslintPath: require.resolve('eslint'),
+                emitWarning: isEnvDevelopment
               },
               loader: require.resolve('eslint-loader')
             }
@@ -356,7 +357,7 @@ module.exports = function(webpackEnv) {
                 babelrc: false,
                 configFile: false,
                 compact: false,
-                presets: [[require.resolve('babel-preset-react-app/dependencies'), {helpers: true}]],
+                presets: [[require.resolve('babel-preset-react-app/dependencies'), { helpers: true }]],
                 cacheDirectory: true,
                 cacheCompression: isEnvProduction,
 
