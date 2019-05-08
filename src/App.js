@@ -5,26 +5,8 @@ import { Provider } from 'react-redux'
 import { Router } from 'react-router-dom'
 import { ThemeProvider } from 'react-jss'
 import { store, history } from 'src/store'
+import { theme } from 'src/utils/theme'
 import Routes from 'src/Routes'
-import 'src/App.css'
-
-export const theme = {
-  direction: 'ltr',
-  palette: {
-    primary: {
-      light: 'red',
-      main: 'red',
-      dark: 'red'
-    },
-    secondary: {
-      light: 'blue',
-      main: 'blue',
-      dark: 'blue'
-    },
-    error: 'red',
-    text: 'gray'
-  }
-}
 
 function App() {
   return (
