@@ -1,6 +1,6 @@
 // @flow
 
-import {combineReducers} from 'redux'
+import { combineReducers } from 'redux'
 import Note from 'src/note'
 const appReducer = combineReducers({
   note: Note.reducers

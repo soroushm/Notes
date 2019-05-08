@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react'
-import {Switch, Route} from 'react-router-dom'
+import { Switch, Route } from 'react-router-dom'
 import NoteRoutes from 'src/note/Routes'
 
 import 'src/App.css'

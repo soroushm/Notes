@@ -1,11 +1,11 @@
 // @flow
 
-import {applyMiddleware, compose, createStore} from 'redux'
+import { applyMiddleware, compose, createStore } from 'redux'
 
-import {routerMiddleware} from 'react-router-redux'
-import {createBrowserHistory} from 'history'
+import { routerMiddleware } from 'react-router-redux'
+import { createBrowserHistory } from 'history'
 import thunk from 'redux-thunk'
-import {logger} from 'redux-logger'
+import { logger } from 'redux-logger'
 import rootReducer from 'src/reducers'
 
 export const history = createBrowserHistory()

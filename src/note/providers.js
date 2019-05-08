@@ -1,12 +1,12 @@
 // @flow
 
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 const noteProvider = connect(
   null,
   (dispatch) => {
     return {
-      getNotes: (id: string) => dispatch('TEST', {id})
+      getNotes: (id: string) => dispatch('TEST', { id })
     }
   }
 )
