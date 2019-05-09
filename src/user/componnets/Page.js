@@ -25,7 +25,7 @@ const Page = ({ classes, user, setUser }): Props => {
     position: 'relative'
   }
   return (
-    <Grid container alignContent="flex-start" justify="center" alignItems="center" styles={{ root: containerStyle }}>
+    <Grid container alignContent="center" justify="center" alignItems="center" styles={{ root: containerStyle }}>
       <form
         onSubmit={(e) => {
           e.preventDefault()
