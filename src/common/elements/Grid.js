@@ -27,11 +27,11 @@ const Grid = (props: Props) => {
 }
 
 const styles = () => ({
-  root: ({ container, direction, alignItems, alignContent, alignSelf, justify, styles = {} }) => {
+  root: ({ container, direction = 'column', alignItems, alignContent, alignSelf, justify, styles = {} }) => {
     const { root = null } = styles
     return {
-      display: container && 'flex',
-      direction: direction && humps.camelizeKeys(direction),
+      display: container ? 'flex' : 'inline-flex',
+      flexDirection: direction && humps.camelizeKeys(direction),
       alignItems: alignItems && humps.camelizeKeys(alignItems),
       alignContent: alignContent && humps.camelizeKeys(alignContent),
       alignSelf: alignSelf && humps.camelizeKeys(alignSelf),

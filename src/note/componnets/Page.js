@@ -1,11 +1,23 @@
-import React, { useEffect } from 'react'
-import '../styles/page.scss'
+//@flow
+import React from 'react'
+import injectSheet from 'react-jss'
+import { Grid } from 'src/common/elements'
+import { Header } from 'src/common/components'
 
-const Page = (props) => {
-  useEffect(() => {
-    console.log('props', props)
-  })
-  return <div className="masoud">is note: {props.match.params.id}</div>
+type Props = {
+  classes?: Object
 }
 
-export default Page
+const Page = ({ classes }: Props) => {
+  const containerStyle = {
+    minHeight: '100vh'
+  }
+  return (
+    <Grid container styles={{ root: containerStyle }}>
+      <Header />
+    </Grid>
+  )
+}
+
+const styles = () => ({})
+export default injectSheet(styles)(Page)

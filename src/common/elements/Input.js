@@ -8,7 +8,8 @@ import { choseSize } from 'src/utils/theme'
 type Props = {
   classes: Object,
   styles?: Object,
-  size?: size
+  size?: size,
+  inputRef?: any
 }
 
 /* eslint-disable no-unused-vars */
