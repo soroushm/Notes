@@ -10,10 +10,11 @@ import { providers } from 'src/note'
 type Props = {
   classes: Object,
   Note: Object,
-  editNote: Function
+  editNote: Function,
+  goToNote: Function
 }
 
-const Write = ({ classes, note, editNote }: Props) => {
+const Write = ({ classes, note, editNote, goToNote }: Props) => {
   const [pined, setPin] = useState(note.pined || false)
   const [selectedColor, setColor] = useState(note.color || colors[0])
   const [showColors, setShowColors] = useState(false)
@@ -26,7 +27,15 @@ const Write = ({ classes, note, editNote }: Props) => {
     setColor(color)
   }
   return (
-    <Paper shadow elevation className={classes.paper} color={note.color}>
+    <Paper
+      shadow
+      elevation
+      className={classes.paper}
+      color={note.color}
+      onClick={() => {
+        goToNote(note.id)
+      }}
+    >
       <Grid container>
         <div className={classes.title} title="Title">
           {note.title}

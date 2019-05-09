@@ -18,6 +18,12 @@ const noteProvider = connect(
       deletNote: (note: Object) => {
         dispatch({ type: actionTypes.DELETE_NOTE, note })
         dispatch(push('/note'))
+      },
+      goToNote: (id: string) => {
+        if (!id) {
+          return
+        }
+        dispatch(push(`/note/${id}`))
       }
     }
   }
