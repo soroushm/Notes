@@ -4,6 +4,7 @@ import React from 'react'
 import injectSheet from 'react-jss'
 import { connect } from 'react-redux'
 import { Grid } from 'src/common/elements'
+import NoteCart from 'src/note/componnets/NoteCart'
 
 type Props = {
   classes?: Object,
@@ -11,8 +12,19 @@ type Props = {
 }
 
 const OtherNotes = ({ classes, notes = [] }: Props) => {
-  console.log('OtherNotes', notes)
-  return <Grid container>{notes.map((note) => console.log(note))}</Grid>
+  if (notes.length === 0) {
+    return null
+  }
+  return (
+    <section>
+      <h3>Other</h3>
+      <Grid container direction="row" alignContent="space-around" justify="center">
+        {notes.map((note) => (
+          <NoteCart note={note} />
+        ))}
+      </Grid>
+    </section>
+  )
 }
 
 const styles = (theme) => ({})

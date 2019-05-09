@@ -32,6 +32,7 @@ const styles = () => ({
     const { root = null } = styles
     return {
       display: container && 'flex',
+      flexWrap: 'wrap',
       flexDirection: direction && humps.camelizeKeys(direction),
       alignItems: alignItems && humps.camelizeKeys(alignItems),
       alignContent: alignContent && humps.camelizeKeys(alignContent),

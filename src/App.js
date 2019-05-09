@@ -4,7 +4,8 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { Router } from 'react-router-dom'
 import { ThemeProvider } from 'react-jss'
-import { store, history } from 'src/store'
+import { history, store, persistor } from 'src/store'
+import { PersistGate } from 'redux-persist/integration/react'
 import { theme } from 'src/utils/theme'
 import Routes from 'src/Routes'
 
@@ -13,7 +14,9 @@ function App() {
     <Provider store={store}>
       <Router history={history}>
         <ThemeProvider theme={theme}>
-          <Routes />
+          <PersistGate loading={null} persistor={persistor}>
+            <Routes />
+          </PersistGate>
         </ThemeProvider>
       </Router>
     </Provider>
