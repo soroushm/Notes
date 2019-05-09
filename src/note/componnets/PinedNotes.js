@@ -1,17 +1,15 @@
 //@flow
 
 import React from 'react'
-import injectSheet from 'react-jss'
 import { connect } from 'react-redux'
 import { Grid } from 'src/common/elements'
 import NoteCart from 'src/note/componnets/NoteCart'
 
 type Props = {
-  classes?: Object,
-  notes: Array
+  notes: Array<Object>
 }
 
-const PinedNotes = ({ classes, notes = [] }: Props) => {
+const PinedNotes = ({ notes = [] }: Props) => {
   if (notes.length === 0) {
     return null
   }
@@ -19,15 +17,14 @@ const PinedNotes = ({ classes, notes = [] }: Props) => {
     <section>
       <h3>Pinned</h3>
       <Grid container direction="row" alignContent="space-around" justify="center">
-        {notes.map((note) => (
-          <NoteCart note={note} />
+        {notes.map((note, i) => (
+          <NoteCart note={note} key={i} />
         ))}
       </Grid>
     </section>
   )
 }
 
-const styles = (theme) => ({})
 const mapStateToProps = (state) => ({ notes: state.noteReducer.notes.filter((note) => note.pined) })
 
-export default connect(mapStateToProps)(injectSheet(styles)(PinedNotes))
+export default connect(mapStateToProps)(PinedNotes)

@@ -8,7 +8,7 @@ import OtherNotes from 'src/note/componnets/OtherNotes'
 import TakeNote from './TakeNote'
 
 type Props = {
-  classes?: Object
+  classes: Object
 }
 
 const Page = ({ classes }: Props) => {

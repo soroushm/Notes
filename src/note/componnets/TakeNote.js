@@ -6,7 +6,7 @@ import { Paper } from 'src/common/elements'
 
 import Write from './Write'
 type Props = {
-  classes?: Object
+  classes: Object
 }
 
 const TakeNote = ({ classes }: Props) => {

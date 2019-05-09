@@ -18,8 +18,8 @@ type Props = {
 
 const Write = ({ classes, onSubmitCB, backDrop, addNote, editNote, defaultNote = {} }: Props) => {
   const [selectedColor, setColor] = useState(defaultNote.color || colors[0])
-  const titleInput = useRef()
-  const descInput = useRef()
+  const titleInput: any = useRef()
+  const descInput: any = useRef()
   const [pined, setPin] = useState(defaultNote.pined || false)
   const [showColors, setShowColors] = useState(false)
   const onSubmit = () => {

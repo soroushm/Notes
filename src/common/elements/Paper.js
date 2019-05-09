@@ -3,7 +3,7 @@ import React from 'react'
 import injectSheet from 'react-jss'
 
 type Props = {
-  classes?: Object,
+  classes: Object,
   children: any,
   border?: boolean,
   shadow?: boolean,

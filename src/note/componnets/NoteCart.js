@@ -9,7 +9,7 @@ import { providers } from 'src/note'
 
 type Props = {
   classes: Object,
-  Note: Object,
+  note: Object,
   editNote: Function,
   goToNote: Function
 }
@@ -32,7 +32,7 @@ const Write = ({ classes, note, editNote, goToNote }: Props) => {
       elevation
       className={classes.paper}
       color={note.color}
-      onClick={(e) => {
+      onClick={() => {
         goToNote(note.id)
       }}
     >
@@ -43,8 +43,8 @@ const Write = ({ classes, note, editNote, goToNote }: Props) => {
           </div>
 
           <div className={classes.desc} title="Note">
-            {note.desc.split(/\n/g).map((desc) => (
-              <span>
+            {note.desc.split(/\n/g).map((desc, i) => (
+              <span key={i}>
                 {desc}
                 <br />
               </span>

@@ -8,7 +8,7 @@ import { Header } from 'src/common/components'
 import Edit from 'src/note/componnets/Write'
 
 type Props = {
-  classes?: Object,
+  classes: Object,
   note: Object
 }
 const Details = ({ note, classes }: Props) => {
