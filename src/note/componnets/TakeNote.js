@@ -1,25 +1,33 @@
 //@flow
+
 import React, { useState } from 'react'
 import injectSheet from 'react-jss'
-import { Grid, Paper } from 'src/common/elements'
+import { Paper } from 'src/common/elements'
+
 import Write from './Write'
 type Props = {
   classes?: Object
 }
 
 const TakeNote = ({ classes }: Props) => {
-  const [writeMode, setWriteMode] = useState('false')
+  const [writeMode, setWriteMode] = useState(false)
+  console.log('www', writeMode)
   return (
     <div className={classes.container}>
-      {writeMode && <div className={classes.backDrop} onClick={() => setWriteMode(false)} />}
-      <Paper shadow elevation className={classes.paper}>
-        {!writeMode && (
-          <div className={classes.takeNote} onClick={() => setWriteMode(true)}>
+      {!writeMode && (
+        <Paper shadow elevation className={classes.paper}>
+          <div
+            className={classes.takeNote}
+            onClick={() => {
+              console.log('sssss')
+              setWriteMode(true)
+            }}
+          >
             Take a Note.
           </div>
-        )}
-        {writeMode && <Write />}
-      </Paper>
+        </Paper>
+      )}
+      {writeMode && <Write onSubmitCB={() => setWriteMode(false)} backDrop />}
     </div>
   )
 }
@@ -33,13 +41,7 @@ const styles = (theme) => ({
   paper: {
     position: 'relative'
   },
-  backDrop: {
-    position: 'absolute',
-    top: 0,
-    right: 0,
-    left: 0,
-    bottom: 0
-  },
+
   takeNote: {
     fontWeight: 'bold',
     fontSize: 16,

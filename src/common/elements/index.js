@@ -6,5 +6,5 @@ import Paper from './Paper'
 import Typography from './Typography'
 import Button from './Button'
 import Logo from './Logo'
-
-export { Grid, Input, Paper, Typography, Button, Logo }
+import Color from './Color'
+export { Grid, Input, Paper, Typography, Button, Logo, Color }
