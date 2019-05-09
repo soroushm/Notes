@@ -11,7 +11,6 @@ type Props = {
 
 const TakeNote = ({ classes }: Props) => {
   const [writeMode, setWriteMode] = useState(false)
-  console.log('www', writeMode)
   return (
     <div className={classes.container}>
       {!writeMode && (
@@ -19,7 +18,6 @@ const TakeNote = ({ classes }: Props) => {
           <div
             className={classes.takeNote}
             onClick={() => {
-              console.log('sssss')
               setWriteMode(true)
             }}
           >
