@@ -32,40 +32,61 @@ const Write = ({ classes, note, editNote, goToNote }: Props) => {
       elevation
       className={classes.paper}
       color={note.color}
-      onClick={() => {
+      onClick={(e) => {
         goToNote(note.id)
       }}
     >
       <Grid container>
-        <div className={classes.title} title="Title">
-          {note.title}
+        <div>
+          <div className={classes.title} hidden={!note.title} title="Title">
+            {note.title}
+          </div>
+
+          <div className={classes.desc} title="Note">
+            {note.desc.split(/\n/g).map((desc) => (
+              <span>
+                {desc}
+                <br />
+              </span>
+            ))}
+          </div>
         </div>
-        <div className={classes.desc} title="Note">
-          {note.desc.split(/\n/g).map((desc) => (
-            <span>
-              {desc}
-              <br />
-            </span>
-          ))}
-        </div>
-        <Grid container direction="row">
-          <Grid container direction="row" grow={1}>
-            <Button type="button" link onClick={() => onPined(!pined)}>
+        <div className={classes.footer}>
+          <Grid container direction="row">
+            <Button
+              type="button"
+              link
+              onClick={(e) => {
+                e.stopPropagation()
+                onPined(!pined)
+              }}
+            >
               <div className={pined ? classes.pined : classes.pin} />
             </Button>
-            <Button link type="button" onClick={() => setShowColors(true)}>
+            <Button
+              link
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation()
+                setShowColors(true)
+              }}
+            >
               <div className={classes.palette} />
             </Button>
             {showColors &&
               colors.map((color, i) => (
-                <Color key={i} color={color} default={selectedColor === color} onClick={() => onChangeColor(color)} />
+                <Color
+                  key={i}
+                  color={color}
+                  default={selectedColor === color}
+                  onClick={(e) => {
+                    e.stopPropagation()
+                    onChangeColor(color)
+                  }}
+                />
               ))}
           </Grid>
-
-          <Button link type="submit">
-            Close
-          </Button>
-        </Grid>
+        </div>
       </Grid>
     </Paper>
   )
@@ -74,10 +95,11 @@ const Write = ({ classes, note, editNote, goToNote }: Props) => {
 const styles = (theme) => ({
   paper: {
     position: 'relative',
-    maxWidth: 200,
+    width: 152,
     margin: theme.space.unit
   },
   title: {
+    marginBottom: theme.space.unit * 2,
     fontWeight: 'bold',
     fontSize: 16,
     flexGrow: 1,
@@ -89,11 +111,10 @@ const styles = (theme) => ({
   desc: {
     fontSize: 14,
     border: 'none',
-    marginTop: theme.space.unit * 2,
     color: theme.palette.assets.text.grey,
     outline: 'none',
     resize: 'none',
-    flexGrow: 1,
+    paddingBottom: 25 + theme.space.unit * 2,
     backgroundColor: 'transparent',
     '&::placeholder': {
       fontWeight: 'bold'
@@ -122,6 +143,12 @@ const styles = (theme) => ({
     opacity: 0.9,
     height: 18,
     backgroundSize: 'cover'
+  },
+  footer: {
+    position: 'absolute',
+    bottom: theme.space.unit * 2,
+    left: theme.space.unit * 2,
+    right: theme.space.unit * 2
   }
 })
 export default providers.note(injectSheet(styles)(Write))

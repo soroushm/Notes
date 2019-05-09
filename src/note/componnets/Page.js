@@ -37,7 +37,7 @@ const styles = (theme) => ({
     flexGrow: 1
   },
   container: {
-    maxWidth: 768,
+    maxWidth: 800,
     width: '100%',
     marginTop: theme.space.unit * 4
   }

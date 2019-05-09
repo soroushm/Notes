@@ -18,8 +18,8 @@ type Props = {
 
 const Write = ({ classes, onSubmitCB, backDrop, addNote, editNote, defaultNote = {} }: Props) => {
   const [selectedColor, setColor] = useState(defaultNote.color || colors[0])
-  const titleInput = useRef(defaultNote.title || '')
-  const descInput = useRef(defaultNote.desc || '')
+  const titleInput = useRef()
+  const descInput = useRef()
   const [pined, setPin] = useState(defaultNote.pined || false)
   const [showColors, setShowColors] = useState(false)
   const onSubmit = () => {
@@ -29,12 +29,15 @@ const Write = ({ classes, onSubmitCB, backDrop, addNote, editNote, defaultNote =
       desc: descInput.current.value,
       pined
     }
+
     if (defaultNote.id) {
       editNote({ ...defaultNote, ...note })
     } else {
-      addNote(note)
+      if (note.title !== '' && note.desc !== '') {
+        addNote(note)
+      }
     }
-    onSubmitCB()
+    onSubmitCB && onSubmitCB()
   }
   return (
     <Fragment>
@@ -53,8 +56,11 @@ const Write = ({ classes, onSubmitCB, backDrop, addNote, editNote, defaultNote =
                 className={classes.title}
                 placeholder="Title"
                 title="Title"
+                defaultValue={defaultNote.title}
                 ref={titleInput}
                 autoComplete="off"
+                autoFocus
+                tabIndex="1"
               />
               <Button type="button" link onClick={() => setPin(!pined)}>
                 <div className={pined ? classes.pined : classes.pin} />
@@ -65,9 +71,11 @@ const Write = ({ classes, onSubmitCB, backDrop, addNote, editNote, defaultNote =
               className={classes.desc}
               placeholder="Take a note ..."
               title="Note"
+              defaultValue={defaultNote.desc}
               autoComplete="off"
               rows={5}
               ref={descInput}
+              tabIndex="2"
             />
             <Grid container direction="row">
               <Grid container direction="row" grow={1}>
@@ -80,8 +88,8 @@ const Write = ({ classes, onSubmitCB, backDrop, addNote, editNote, defaultNote =
                   ))}
               </Grid>
 
-              <Button link type="submit">
-                Close
+              <Button tabindex={3} link type="submit">
+                {defaultNote.id ? 'save' : 'close'}
               </Button>
             </Grid>
           </Grid>

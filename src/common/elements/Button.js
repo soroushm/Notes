@@ -31,8 +31,8 @@ const styles = (theme) => ({
       boxSizing: 'border-box',
       fontSize: choseSize(size, theme) / 2.2,
       height: choseSize(size, theme),
-      paddingLeft: theme.space.unit * 2,
-      paddingRight: theme.space.unit * 2,
+      paddingLeft: link ? theme.space.unit : theme.space.unit * 2,
+      paddingRight: link ? theme.space.unit : theme.space.unit * 2,
       fontWeight: 'bold',
       fontFamily: theme.fontFamily,
       '&::hover': {

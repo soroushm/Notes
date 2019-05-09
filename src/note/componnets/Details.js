@@ -1,22 +1,40 @@
 //@flow
 
-import React, { useEffect } from 'react'
+import React from 'react'
 import injectSheet from 'react-jss'
 import { connect } from 'react-redux'
 import { Grid } from 'src/common/elements'
+import { Header } from 'src/common/components'
+import Edit from 'src/note/componnets/Write'
 
 type Props = {
   classes?: Object,
-  notes: Array
+  note: Object
 }
-const Details = (props: Props) => {
-  useEffect(() => {
-    console.log('props', props)
-  })
-  return <div className="masoud">is note: {props.match.params.id}</div>
+const Details = ({ note, classes }: Props) => {
+  const containerStyle = {
+    minHeight: '100vh'
+  }
+  console.log('note', note)
+  return (
+    <Grid container styles={{ root: containerStyle }}>
+      <Header />
+      <Grid container justify="center" alignItems="center">
+        <div className={classes.container}>
+          <Edit defaultNote={note} />
+        </div>
+      </Grid>
+    </Grid>
+  )
 }
 
-const styles = (theme) => ({})
+const styles = (theme) => ({
+  container: {
+    maxWidth: 800,
+    width: '100%',
+    marginTop: theme.space.unit * 4
+  }
+})
 const mapStateToProps = (state, props) => ({
   note: state.noteReducer.notes.filter((note) => note.id === props.match.params.id)[0]
 })
