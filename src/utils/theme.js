@@ -23,8 +23,14 @@ export const theme = {
       dark: 'blue'
     },
     assets: {
+      backgroundGrey: grey[50],
       grey: grey[300],
-      background: white
+      background: white,
+      text: {
+        white: white,
+        grey: grey[700],
+        dark: grey[900]
+      }
     },
     error: 'red',
     text: 'gray'
@@ -40,6 +46,17 @@ export const choseColor = (color?: string, theme: Object) => {
     case 'default':
     default:
       return theme.palette.assets.grey
+  }
+}
+export const choseTextColor = (color?: string, theme: Object) => {
+  switch (color) {
+    case 'primary':
+      return theme.palette.primary.main
+    case 'secondary':
+      return theme.palette.secondary.main
+    case 'default':
+    default:
+      return theme.palette.assets.text.dark
   }
 }
 

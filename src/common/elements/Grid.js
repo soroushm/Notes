@@ -14,6 +14,7 @@ type Props = {
   classes: Object,
   children?: any,
   container?: boolean,
+  grow?: number,
   direction?: 'row' | 'row-reverse' | 'column' | 'column-reverse',
   alignItems?: 'flex-start' | 'center' | 'flex-end' | 'stretch' | 'baseline',
   alignSelf?: 'auto' | 'flex-start' | 'flex-end' | 'center' | 'baseline' | 'stretch',
@@ -27,15 +28,16 @@ const Grid = (props: Props) => {
 }
 
 const styles = () => ({
-  root: ({ container, direction = 'column', alignItems, alignContent, alignSelf, justify, styles = {} }) => {
+  root: ({ container, direction = 'column', alignItems, alignContent, alignSelf, justify, grow = 0, styles = {} }) => {
     const { root = null } = styles
     return {
-      display: container ? 'flex' : 'inline-flex',
+      display: container && 'flex',
       flexDirection: direction && humps.camelizeKeys(direction),
       alignItems: alignItems && humps.camelizeKeys(alignItems),
       alignContent: alignContent && humps.camelizeKeys(alignContent),
       alignSelf: alignSelf && humps.camelizeKeys(alignSelf),
       justifyContent: justify && humps.camelizeKeys(justify),
+      flexGrow: grow,
       ...root
     }
   }
